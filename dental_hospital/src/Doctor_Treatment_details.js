@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './index.jsx'; // Import the NavBar component
+import './Doctor_Treatment_details.css';
+import DoctorTreatment from './DoctorTreatment';
 
 // Create a root element
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Render the App component
+// Render the DoctorTreatment component
 root.render(
   <React.StrictMode>
-    <Home />
+    <DoctorTreatment />
   </React.StrictMode>
 );
