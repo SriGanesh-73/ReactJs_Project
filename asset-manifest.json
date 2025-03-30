@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/ReactJs_Project/dental_hospital/public/index.html/static/css/main.d0af8e51.css",
+    "main.js": "/ReactJs_Project/dental_hospital/public/index.html/static/js/main.13e46664.js",
+    "static/media/dental-clinic-instruments.jpg": "/ReactJs_Project/dental_hospital/public/index.html/static/media/dental-clinic-instruments.9cbf5356e39583ee1a23.jpg",
+    "static/media/EasyBooking.jpg": "/ReactJs_Project/dental_hospital/public/index.html/static/media/EasyBooking.b1524c088e3999527363.jpg",
+    "static/media/logo.webp": "/ReactJs_Project/dental_hospital/public/index.html/static/media/logo.38fd12daf1519dfa94ee.webp",
+    "static/media/hippa-icon.jpg": "/ReactJs_Project/dental_hospital/public/index.html/static/media/hippa-icon.a391317bab5217820bf9.jpg",
+    "static/media/icon7.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon7.6ab4785c0bd75d5dcd74.png",
+    "static/media/go-paperless.webp": "/ReactJs_Project/dental_hospital/public/index.html/static/media/go-paperless.1745908db1644b07533e.webp",
+    "static/media/communication.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/communication.ae17c33ea7b86bc1f31e.png",
+    "static/media/icon3.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon3.174b4f9da4c157ecd038.png",
+    "static/media/icon2.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon2.4b8d040c5c084aa1ea40.png",
+    "static/media/icon9.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon9.fe070affcfce89cb8819.png",
+    "static/media/icon5.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon5.d398416f088251d62d0b.png",
+    "static/media/icon4.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon4.a9f727a5abe497eb1449.png",
+    "static/media/icon6.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon6.f24b59fec7d892da98a6.png",
+    "static/media/icon8.png": "/ReactJs_Project/dental_hospital/public/index.html/static/media/icon8.ffa5b3b7a80ab0c10439.png",
+    "index.html": "/ReactJs_Project/dental_hospital/public/index.html/index.html",
+    "main.d0af8e51.css.map": "/ReactJs_Project/dental_hospital/public/index.html/static/css/main.d0af8e51.css.map",
+    "main.13e46664.js.map": "/ReactJs_Project/dental_hospital/public/index.html/static/js/main.13e46664.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0af8e51.css",
+    "static/js/main.13e46664.js"
+  ]
+}
