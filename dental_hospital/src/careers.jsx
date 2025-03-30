@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import NavBar from './index.jsx';
+import NavBar from './NavBar.jsx';
 import './landing_pages.css';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const Careers = () => {
     const [applicationData, setApplicationData] = useState({

@@ -8,7 +8,6 @@ import Careers from './careers.jsx';
 import TermsAndConditions from './terms.jsx';
 import PrivacyPolicy from './privacy_policy.jsx';
 import AppointmentBooking from './Appointment_Booking_form.jsx';
-import FAQ from './FAQ.jsx'; // Create this component if needed
 import DoctorTreatment from './Doctor_Treatment_details.jsx';
 
 const AllRouters = () => {
@@ -25,7 +24,6 @@ const AllRouters = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/book-appointment" element={<AppointmentBooking />} />
         <Route path="/doctor-treatment" element={<DoctorTreatment />} />
-        <Route path="/faq" element={<FAQ />} />
         
         {/* Add a catch-all route for 404 pages */}
         <Route path="*" element={<Home />} />

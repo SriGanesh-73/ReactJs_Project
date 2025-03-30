@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import NavBar from './NavBar';
+import NavBar from './NavBar.jsx';
 import './Doctor_Treatment_details.css';
 import './index.css';
 import {Link} from 'react-router-dom';
