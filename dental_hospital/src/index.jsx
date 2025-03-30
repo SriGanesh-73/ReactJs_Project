@@ -50,15 +50,28 @@ function Home() {
   }, []);
   
   // FAQ toggle function
+  const [faqs, setFaqs] = useState([
+    {
+      question: "How do I book an appointment?",
+      answer: "You can book online through our website or call our reception desk.",
+      isOpen: false
+    },
+    {
+      question: "Do you accept insurance?",
+      answer: "Yes, we accept most insurance plans. Contact us for details.",
+      isOpen: false
+    },
+    {
+      question: "What treatments do you offer?",
+      answer: "We provide general dentistry, cosmetic treatments, orthodontics, and more.",
+      isOpen: false
+    }
+  ]);
   const toggleFaq = (index) => {
-    const faqItems = document.querySelectorAll(".faq-item");
-    const faqItem = faqItems[index];
-    const answer = faqItem.querySelector(".answer");
-    const arrow = faqItem.querySelector(".arrow");
-    
-    faqItem.classList.toggle("active");
-    answer.classList.toggle("active");
-    arrow.classList.toggle("rotate");
+    setFaqs(faqs.map((faq, i) => ({
+      ...faq,
+      isOpen: i === index ? !faq.isOpen : false
+    })));
   };
   
 
@@ -214,48 +227,28 @@ function Home() {
         <div id="row8" className="scroll-container">
           <h2>Frequently Asked Questions</h2>
           <main>
-            <div className="faq-item" onClick={() => toggleFaq(0)}>
-              <h3>
-                How do I book an appointment?
-                <span className="arrow">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000">
-                    <path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z"/>
-                  </svg>
-                </span>
-              </h3>
-              <div className="answer">
-                <p>You can book online through our website or call our reception desk.</p>
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className={`faq-item ${faq.isOpen ? 'active' : ''}`}
+                onClick={() => toggleFaq(index)}
+              >
+                <h3>
+                  {faq.question}
+                  <span className={`arrow ${faq.isOpen ? 'rotate' : ''}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000">
+                      <path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z"/>
+                    </svg>
+                  </span>
+                </h3>
+                {faq.isOpen && (
+                  <div className="answer">
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
               </div>
-            </div>
-            
-            <div className="faq-item" onClick={() => toggleFaq(1)}>
-              <h3>
-                Do you accept insurance?
-                <span className="arrow">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000">
-                    <path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z"/>
-                  </svg>
-                </span>
-              </h3>
-              <div className="answer">
-                <p>Yes, we accept most insurance plans. Contact us for details.</p>
-              </div>
-            </div>
-            
-            <div className="faq-item" onClick={() => toggleFaq(2)}>
-              <h3>
-                What treatments do you offer?
-                <span className="arrow">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000">
-                    <path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z"/>
-                  </svg>
-                </span>
-              </h3>
-              <div className="answer">
-                <p>We provide general dentistry, cosmetic treatments, orthodontics, and more.</p>
-              </div>
-            </div>
-          </main>
+            ))}
+          </main>  
         </div>
       </div>
       

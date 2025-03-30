@@ -8,13 +8,15 @@ const NavBar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   const [isRightMenuOpen, setIsRightMenuOpen] = useState(false);
-  
+  const [isRightDropdownActive, setIsRightDropdownActive] = useState(false);
+
   // Refs for DOM elements
   const menuContainerRef = useRef(null);
   const dropdownRef = useRef(null);
   const overlayRef = useRef(null);
   const hamburgerRef = useRef(null);
   const rightMenuRef = useRef(null);
+  const rightDropdownRef = useRef(null);
 
   // Toggle overlay visibility
   const toggleOverlay = (show) => {
@@ -112,7 +114,11 @@ const NavBar = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
+  // Toggle right dropdown
+  const toggleRightDropdown = (event) => {
+    event.stopPropagation();
+    setIsRightDropdownActive(!isRightDropdownActive);
+  };
   // Responsive behavior
   useEffect(() => {
     const handleResize = () => {
@@ -258,7 +264,6 @@ const NavBar = () => {
         onClick={handleOverlayClick}
         style={{ display: 'none' }}
       ></div>
-      
       <div id="icon">
         <img src={logo} width="20px" height="20px" alt="DentaEase Logo" />
         <h3><Link to="/">DentaEase</Link></h3>
@@ -385,16 +390,15 @@ const NavBar = () => {
           </button>
         </div>
         
-        {/* Dual-purpose hamburger button */}
-        <span 
+      </div>
+      {/* Dual-purpose hamburger button */}
+      <span 
           id="menu-btn1"
           ref={hamburgerRef}
           onClick={handleHamburgerClick}
         >
           ☰
-        </span>
-      </div>
-      
+      </span>
       {/* Right-side Menu */}
       <div 
         id="right-menu" 
@@ -408,14 +412,16 @@ const NavBar = () => {
         </div>
         
         <div id="section2">
-          <div id="features-dropdown">
-            <Link to="#" className="features-header">
-              <span>Features</span>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
-                <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
-              </svg>
-            </Link>
-            <ul className="features-list">
+          <div id="dropdown1" 
+            ref={rightDropdownRef}
+            className={`features-dropdown ${isRightDropdownActive ? 'active' : ''}`}
+            onClick={toggleRightDropdown}
+          >
+            <div id="features">
+              <a id="ele1" href="#">Features</a>
+              <span id="ele2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></span>
+            </div>
+            <ul id="dropdown-content1" className="features-list">
               {[1,2,3,4,5,6,7,8,9].map((i) => (
                 <li key={i}>
                   <Link to={`#features${i}`}>
