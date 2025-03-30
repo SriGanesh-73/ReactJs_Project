@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from './index.jsx';
 import './About_Us.css';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
     const [teamMembers, setTeamMembers] = useState([

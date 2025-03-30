@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 import NavBar from './NavBar.jsx';
+import { Link } from 'react-router-dom';
 
 // Icons and images
 import icon1 from './assets/icon1.png';
@@ -281,8 +282,8 @@ function Home() {
           <div id="desc1" className="hidden1">
             <h1>Welcome to DentaEase</h1>
             <h3>Your Smile, Our Priority!</h3>
-            <button id="bt-1"><a href="Appointment_booking_form.html">Book an Appointment</a></button>
-            <button id="bt-2"><a href="Doctor_Treatment_details.html">Our Doctors & Treatment</a></button>
+            <button id="bt-1"><Link to="/book-appointment">Book an Appointment</Link></button>
+            <button id="bt-2"><Link to="/doctor-treatment">Our Doctors & Treatment</Link></button>
           </div>
           <div className="hidden" id="img1">
             <img src={dentalClinicInstruments} width="350px" height="200px" alt="Dental Clinic Instruments" />

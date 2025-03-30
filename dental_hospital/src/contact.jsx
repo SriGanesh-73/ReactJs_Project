@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from './index.jsx';
 import './landing_pages.css';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({

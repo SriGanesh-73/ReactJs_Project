@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import NavBar from './NavBar';
 import './Doctor_Treatment_details.css';
 import './index.css';
+import {Link} from 'react-router-dom';
 
 // Import doctor images
 import doctorImage from './assets/doctor_1.jpg';

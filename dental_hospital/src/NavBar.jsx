@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import logo from './assets/logo.webp';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ showForm }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -57,12 +58,12 @@ const NavBar = ({ showForm }) => {
     <div className="navbar">
       <div id="icon">
         <img src={logo} width="20px" height="20px" alt="DentaEase Logo" />
-        <h3><a href="index.html">DentaEase</a></h3>
+        <h3><Link to="/index.html">DentaEase</Link></h3>
       </div>
       
       <div id="container" ref={menuContainerRef} className={isMenuActive ? "active" : ""}>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
+          <li><Link to="/index.html">Home</Link></li>
           <li id="dropdown" ref={dropdownRef} className={isDropdownActive ? "active" : ""} onClick={toggleDropdown}>
             <a href="#">Features</a>
             <ul id="dropdown-content">
@@ -77,9 +78,9 @@ const NavBar = ({ showForm }) => {
               <li><a href="#features9">Lab Management</a></li>
             </ul>
           </li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="About_Us.html">About Us</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><Link to="/careers">Careers</Link></li>
+          <li><Link to="/about-us">About Us</Link></li>
+          <li><Link to="/contact-us">Contact Us</Link></li>
         </ul>
         
         <button id="open-login" onClick={() => showForm('login')}>
@@ -145,8 +146,8 @@ const NavBar = ({ showForm }) => {
             </ul>
           </div>
           
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact Us</a>
+          <Link to="/careers">Careers</Link>
+          <Link to="/contact-us">Contact Us</Link>
           <a href="#support">Support</a>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from './index.jsx';
 import './Appointment_booking_form.css';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const AppointmentBooking = () => {
     const [formData, setFormData] = useState({
