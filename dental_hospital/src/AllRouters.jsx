@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './NavBar.jsx'; // Import the NavBar component
 import Home from './index.jsx';
-import AboutUs from './About_Us.jsx';
+import AboutUs from './About_Us';
 import ContactUs from './contact.jsx';
 import Careers from './careers.jsx';
 import TermsAndConditions from './terms.jsx';
@@ -13,6 +14,7 @@ import DoctorTreatment from './Doctor_Treatment_details.jsx';
 const AllRouters = () => {
   return (
     <Router>
+      <NavBar /> {/* Include the NavBar component here */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/index.html" element={<Home />} />
