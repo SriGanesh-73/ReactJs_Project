@@ -3,6 +3,7 @@ import NavBar from './NavBar.jsx';
 import './About_Us.css';
 import './index.css';
 import { Link } from 'react-router-dom';
+import doctorImage from './assets/doctor_1.jpg';
 
 const AboutUs = () => {
     const [teamMembers, setTeamMembers] = useState([
@@ -10,13 +11,13 @@ const AboutUs = () => {
             id: 1,
             name: "Dr. John Doe",
             role: "Chief Dentist with 20+ years of experience.",
-            image: "assets/doctor_1.jpg"
+            image: doctorImage
         },
         {
             id: 2,
             name: "Dr. Jane Smith",
             role: "Specialist in Orthodontics and Cosmetic Dentistry.",
-            image: "assets/doctor_1.jpg"
+            image: doctorImage
         }
     ]);
 
