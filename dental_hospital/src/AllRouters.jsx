@@ -12,7 +12,7 @@ import DoctorTreatment from './Doctor_Treatment_details.jsx';
 
 const AllRouters = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/index.html" element={<Home />} />
