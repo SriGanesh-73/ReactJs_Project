@@ -41,18 +41,12 @@ const NavBar = ({ showForm }) => {
 
   // Toggle right menu
   const toggleRightMenu = () => {
-    const newState = !isRightMenuOpen;
-    setIsRightMenuOpen(newState);
-    toggleOverlay(newState);
-    
+    document.body.classList.toggle('menu-open');
     // Update hamburger icon
-    if (hamburgerRef.current && window.innerWidth > 768) {
-      hamburgerRef.current.textContent = newState ? "✖" : "☰";
-    }
-    
-    // Close mobile menu if open
-    if (newState && isMenuActive) {
-      setIsMenuActive(false);
+    if (hamburgerRef.current) {
+      hamburgerRef.current.textContent = document.body.classList.contains('menu-open') 
+        ? "✖" 
+        : "☰";
     }
   };
 
