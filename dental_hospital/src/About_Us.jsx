@@ -44,7 +44,31 @@ const AboutUs = () => {
             [id]: { ...prev[id], boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }
         }));
     };
-
+    // Scroll animation effect
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const img = entry.target.querySelector(".hidden");
+            const text = entry.target.querySelector(".hidden1");
+            
+            if (entry.isIntersecting) {
+            if (img) img.classList.add("show");
+            if (text) text.classList.add("show1");
+            } else {
+            if (img) img.classList.remove("show");
+            if (text) text.classList.remove("show1");
+            }
+        });
+        }, { threshold: 0.2 });
+        
+        // Observe the scroll containers
+        const scrollContainers = document.querySelectorAll(".scroll-container");
+        scrollContainers.forEach((container) => observer.observe(container));
+        
+        return () => {
+        scrollContainers.forEach((container) => observer.unobserve(container));
+        };
+    }, []);
     return (
         <div className="main">
             <div className="overlay"></div>

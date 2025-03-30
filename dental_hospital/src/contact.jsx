@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar.jsx';
 import './landing_pages.css';
 import './index.css';
@@ -25,6 +25,31 @@ const ContactUs = () => {
         console.log('Form submitted:', formData);
         // You can add validation and submission logic
     };
+    // Scroll animation effect
+    useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+        const img = entry.target.querySelector(".hidden");
+        const text = entry.target.querySelector(".hidden1");
+        
+        if (entry.isIntersecting) {
+            if (img) img.classList.add("show");
+            if (text) text.classList.add("show1");
+        } else {
+            if (img) img.classList.remove("show");
+            if (text) text.classList.remove("show1");
+        }
+        });
+    }, { threshold: 0.2 });
+    
+    // Observe the scroll containers
+    const scrollContainers = document.querySelectorAll(".scroll-container");
+    scrollContainers.forEach((container) => observer.observe(container));
+    
+    return () => {
+        scrollContainers.forEach((container) => observer.unobserve(container));
+    };
+    }, []);
 
     return (
         <div className="main">
