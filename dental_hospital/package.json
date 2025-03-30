@@ -12,7 +12,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://sriganesh-73.github.io/ReactJs_Project/dental_hospital/public/index.html",
+  "homepage": "https://sriganesh-73.github.io/ReactJs_Project/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
