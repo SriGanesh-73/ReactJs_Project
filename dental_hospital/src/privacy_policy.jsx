@@ -47,9 +47,9 @@ const PrivacyPolicy = () => {
             <div id="footer">
                 <p>Copyrights © 2025 DentaEase. All rights reserved.</p>
                 <div id="landing_pages">
-                    <a href="terms.html">Terms and Conditions</a>
+                    <Link to="/terms">Terms and Conditions</Link>
                     <span>|</span>
-                    <a href="privacy-policy.html">Privacy and Policy</a>
+                    <Link to="/privacy-policy">Privacy & Policy</Link>
                     <span>|</span>
                     <a href="faq.html">FAQ</a>
                 </div>
