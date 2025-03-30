@@ -13,49 +13,71 @@ const NavBar = ({ showForm }) => {
   const dropdownRef = useRef(null);
   const overlayRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const rightMenuRef = useRef(null);
+
+  // Toggle overlay visibility
+  const toggleOverlay = (show) => {
+    if (overlayRef.current) {
+      overlayRef.current.style.display = show ? 'block' : 'none';
+    }
+  };
 
   // Combined mobile menu toggle function
   const toggleMobileMenu = () => {
     const newState = !isMenuActive;
     setIsMenuActive(newState);
-    
-    // Toggle overlay
-    if (overlayRef.current) {
-      overlayRef.current.style.display = newState ? "block" : "none";
-    }
+    toggleOverlay(newState);
     
     // Update hamburger icon
     if (hamburgerRef.current) {
       hamburgerRef.current.textContent = newState ? "✖" : "☰";
     }
+    
+    // Close right menu if open
+    if (newState && isRightMenuOpen) {
+      setIsRightMenuOpen(false);
+    }
   };
 
-  // Toggle right menu (for larger screens)
+  // Toggle right menu
   const toggleRightMenu = () => {
-    if (window.innerWidth > 768) { // Adjust breakpoint as needed
-      setIsRightMenuOpen(!isRightMenuOpen);
+    const newState = !isRightMenuOpen;
+    setIsRightMenuOpen(newState);
+    toggleOverlay(newState);
+    
+    // Update hamburger icon
+    if (hamburgerRef.current && window.innerWidth > 768) {
+      hamburgerRef.current.textContent = newState ? "✖" : "☰";
+    }
+    
+    // Close mobile menu if open
+    if (newState && isMenuActive) {
+      setIsMenuActive(false);
     }
   };
 
   // Combined click handler for hamburger button
   const handleHamburgerClick = () => {
-    if (window.innerWidth <= 768) { // Mobile view
+    if (window.innerWidth <= 768) {
       toggleMobileMenu();
-    } else { // Desktop view
+    } else {
       toggleRightMenu();
     }
   };
 
-  // Close menus when clicking outside
-  const handleOverlayClick = () => {
+  // Close all menus and overlay
+  const closeAllMenus = () => {
     setIsMenuActive(false);
     setIsRightMenuOpen(false);
-    if (overlayRef.current) {
-      overlayRef.current.style.display = "none";
-    }
+    toggleOverlay(false);
     if (hamburgerRef.current) {
       hamburgerRef.current.textContent = "☰";
     }
+  };
+
+  // Handle overlay click
+  const handleOverlayClick = () => {
+    closeAllMenus();
   };
 
   // Handle dropdown toggle
@@ -67,11 +89,21 @@ const NavBar = ({ showForm }) => {
   // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Check if click is outside all menu elements
+      if (
+        menuContainerRef.current && 
+        !menuContainerRef.current.contains(event.target) &&
+        rightMenuRef.current && 
+        !rightMenuRef.current.contains(event.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        closeAllMenus();
+      }
+      
+      // Handle dropdown specifically
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownActive(false);
-      }
-      if (menuContainerRef.current && !menuContainerRef.current.contains(event.target)) {
-        setIsMenuActive(false);
       }
     };
 
@@ -84,21 +116,23 @@ const NavBar = ({ showForm }) => {
   // Responsive behavior
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsMenuActive(false);
-        if (overlayRef.current) {
-          overlayRef.current.style.display = "none";
-        }
+      if (window.innerWidth > 768 && isMenuActive) {
+        closeAllMenus();
       }
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [isMenuActive]);
 
   return (
     <div className="navbar">
-      <div className="overlay" ref={overlayRef} onClick={handleOverlayClick}></div>
+      <div 
+        className="overlay" 
+        ref={overlayRef} 
+        onClick={handleOverlayClick}
+        style={{ display: 'none' }}
+      ></div>
       
       <div id="icon">
         <img src={logo} width="20px" height="20px" alt="DentaEase Logo" />
@@ -109,18 +143,31 @@ const NavBar = ({ showForm }) => {
       <div id="container" ref={menuContainerRef} className={isMenuActive ? "active" : ""}>
         <ul id="menu">
           <li><Link to="/">Home</Link></li>
-          <li id="dropdown" ref={dropdownRef} className={isDropdownActive ? "active" : ""} onClick={toggleDropdown}>
+          <li 
+            id="dropdown" 
+            ref={dropdownRef} 
+            className={isDropdownActive ? "active" : ""} 
+            onClick={toggleDropdown}
+          >
             <Link to="#">Features</Link>
             <ul id="dropdown-content">
-              <li><Link to="#features1">Electronic Patient Records</Link></li>
-              <li><Link to="#features2">Appointment and Schedules</Link></li>
-              <li><Link to="#features3">SMS and Email Notifications</Link></li>
-              <li><Link to="#features4">Accounts & Cash Management</Link></li>
-              <li><Link to="#features5">Reporting System</Link></li>
-              <li><Link to="#features6">Document Management</Link></li>
-              <li><Link to="#features7">Administrator</Link></li>
-              <li><Link to="#features8">Inventory Management</Link></li>
-              <li><Link to="#features9">Lab Management</Link></li>
+              {[1,2,3,4,5,6,7,8,9].map((i) => (
+                <li key={i}>
+                  <Link to={`#features${i}`}>
+                    {[
+                      'Electronic Patient Records',
+                      'Appointment and Schedules',
+                      'SMS and Email Notifications',
+                      'Accounts & Cash Management',
+                      'Reporting System',
+                      'Document Management',
+                      'Administrator',
+                      'Inventory Management',
+                      'Lab Management'
+                    ][i-1]}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </li>
           <li><Link to="/careers">Careers</Link></li>
@@ -148,12 +195,15 @@ const NavBar = ({ showForm }) => {
       </div>
       
       {/* Right-side Menu */}
-      <div id="right-menu" className={isRightMenuOpen ? 'open' : ''}>
+      <div 
+        id="right-menu" 
+        ref={rightMenuRef}
+        className={isRightMenuOpen ? 'open' : ''}
+      >
         <div id="section1">
-          <Link to="#discover">DISCOVER</Link>
-          <Link to="#manage">MANAGE</Link>
-          <Link to="#educate">EDUCATE</Link>
-          <Link to="#buy">BUY</Link>
+          {['DISCOVER', 'MANAGE', 'EDUCATE', 'BUY'].map((item) => (
+            <Link key={item} to={`#${item.toLowerCase()}`}>{item}</Link>
+          ))}
         </div>
         
         <div id="section2">
@@ -165,15 +215,23 @@ const NavBar = ({ showForm }) => {
               </svg>
             </Link>
             <ul className="features-list">
-              <li><Link to="#features1">Electronic Patient Records</Link></li>
-              <li><Link to="#features2">Appointment and Schedules</Link></li>
-              <li><Link to="#features3">SMS and Email Notifications</Link></li>
-              <li><Link to="#features4">Accounts & Cash Management</Link></li>
-              <li><Link to="#features5">Reporting System</Link></li>
-              <li><Link to="#features6">Document Management</Link></li>
-              <li><Link to="#features7">Administrator</Link></li>
-              <li><Link to="#features8">Inventory Management</Link></li>
-              <li><Link to="#features9">Lab Management</Link></li>
+              {[1,2,3,4,5,6,7,8,9].map((i) => (
+                <li key={i}>
+                  <Link to={`#features${i}`}>
+                    {[
+                      'Electronic Patient Records',
+                      'Appointment and Schedules',
+                      'SMS and Email Notifications',
+                      'Accounts & Cash Management',
+                      'Reporting System',
+                      'Document Management',
+                      'Administrator',
+                      'Inventory Management',
+                      'Lab Management'
+                    ][i-1]}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <Link to="/careers">Careers</Link>
