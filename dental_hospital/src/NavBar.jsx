@@ -41,7 +41,18 @@ const NavBar = ({ showForm }) => {
 
   // Toggle right menu
   const toggleRightMenu = () => {
-    document.body.classList.toggle('menu-open');
+    const menuOpenBtn = document.getElementById("menu-btn1");
+    const overlay = document.querySelector(".overlay");
+    menuOpenBtn.addEventListener("click", function () {
+        const menuOpen = document.body.classList.toggle("menu-open");
+        overlay.style.display = menuOpen ? "block" : "none";
+        menuOpenBtn.textContent = menuOpen ? "✖" : "☰";
+    });
+    overlay.addEventListener("click", function () {
+        overlay.style.display = "none";
+        document.body.classList.remove("menu-open");
+        menuOpenBtn.textContent = "☰"; // Reset menu icon
+    });
     // Update hamburger icon
     if (hamburgerRef.current) {
       hamburgerRef.current.textContent = document.body.classList.contains('menu-open') 
