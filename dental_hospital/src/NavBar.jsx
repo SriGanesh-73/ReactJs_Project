@@ -41,23 +41,17 @@ const NavBar = ({ showForm }) => {
 
   // Toggle right menu
   const toggleRightMenu = () => {
-    const menuOpenBtn = document.getElementById("menu-btn1");
+    const menuOpen = document.body.classList.toggle("menu-open");
+    
+    // Toggle overlay visibility
     const overlay = document.querySelector(".overlay");
-    menuOpenBtn.addEventListener("click", function () {
-        const menuOpen = document.body.classList.toggle("menu-open");
-        overlay.style.display = menuOpen ? "block" : "none";
-        menuOpenBtn.textContent = menuOpen ? "✖" : "☰";
-    });
-    overlay.addEventListener("click", function () {
-        overlay.style.display = "none";
-        document.body.classList.remove("menu-open");
-        menuOpenBtn.textContent = "☰"; // Reset menu icon
-    });
+    if (overlay) {
+      overlay.style.display = menuOpen ? "block" : "none";
+    }
+    
     // Update hamburger icon
     if (hamburgerRef.current) {
-      hamburgerRef.current.textContent = document.body.classList.contains('menu-open') 
-        ? "✖" 
-        : "☰";
+      hamburgerRef.current.textContent = menuOpen ? "✖" : "☰";
     }
   };
 
