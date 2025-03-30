@@ -1,12 +1,15 @@
 import React from 'react';
-import AppointmentBooking from './AppointmentBooking';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import './Appointment_booking_form.css';
+import AppointmentBooking from './Appointment_Booking_form.jsx'; // Import the Careers component
 
-function App1() {
-    return (
-        <div className="App">
-            <AppointmentBooking />
-        </div>
-    );
-}
+// Create a root element
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export default App1;
+// Render the AppointmentBooking component
+root.render(
+  <React.StrictMode>
+    <AppointmentBooking />
+  </React.StrictMode>
+);

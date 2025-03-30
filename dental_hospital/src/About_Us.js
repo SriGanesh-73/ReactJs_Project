@@ -1,12 +1,15 @@
 import React from 'react';
-import AboutUs from './AboutUs';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import './About_Us.css';
+import AboutUs from './About_Us.jsx'; // Import the Careers component
 
-function App2() {
-    return (
-        <div className="App">
-            <AboutUs />
-        </div>
-    );
-}
+// Create a root element
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export default App2;
+// Render the AboutUs component
+root.render(
+  <React.StrictMode>
+    <AboutUs />
+  </React.StrictMode>
+);

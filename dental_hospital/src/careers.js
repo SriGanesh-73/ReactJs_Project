@@ -1,12 +1,15 @@
 import React from 'react';
-import Careers from './careers.jsx';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import './landing_pages.css';
+import Careers from './careers.jsx'; // Import the Careers component
 
-function App4() {
-    return (
-        <div className="App">
-            <Careers />
-        </div>
-    );
-}
+// Create a root element
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export default App4;
+// Render the Careers component
+root.render(
+  <React.StrictMode>
+    <Careers />
+  </React.StrictMode>
+);

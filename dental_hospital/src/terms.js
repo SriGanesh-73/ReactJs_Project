@@ -1,12 +1,15 @@
 import React from 'react';
-import TermsAndConditions from './terms.jsx';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import './landing_pages.css';
+import TermsAndConditions from './terms.jsx'; // Import the Careers component
 
-function App5() {
-    return (
-        <div className="App">
-            <TermsAndConditions />
-        </div>
-    );
-}
+// Create a root element
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export default App5;
+// Render the TermsAndConditions component
+root.render(
+  <React.StrictMode>
+    <TermsAndConditions />
+  </React.StrictMode>
+);
