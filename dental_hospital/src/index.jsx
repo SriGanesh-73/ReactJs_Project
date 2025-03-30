@@ -59,6 +59,10 @@ function Home() {
   };
   
   const hideForm = (formType) => {
+    if (overlayRef.current) {
+      overlayRef.current.style.display = "none";
+    }
+
     if (formType === 'login') {
       setIsLoginFormShown(false);
     } else if (formType === 'register') {
