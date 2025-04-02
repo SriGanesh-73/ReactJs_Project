@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import NavBar from './NavBar.jsx';
+import Footer from './Footer.jsx';
 import './Doctor_Treatment_details.css';
 import './index.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Import doctor images
 import doctorImage from './assets/doctor_1.jpg';
@@ -18,68 +19,6 @@ import implant from './assets/dental_implants.jpg';
 import capsCrowns from './assets/caps_crowns.jpg';
 
 function DoctorTreatment() {
-  // States for login/register forms
-  const [isLoginFormShown, setIsLoginFormShown] = useState(false);
-  const [isRegisterFormShown, setIsRegisterFormShown] = useState(false);
-  
-  // Refs for forms and overlay
-  const overlayRef = useRef(null);
-  const loginFormRef = useRef(null);
-  const registerFormRef = useRef(null);
-  
-  // Form validation states
-  const [loginUsername, setLoginUsername] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
-  const [loginUsernameError, setLoginUsernameError] = useState('');
-  const [loginPasswordError, setLoginPasswordError] = useState('');
-  
-  const [registerUsername, setRegisterUsername] = useState('');
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
-  const [registerConfirmPassword, setRegisterConfirmPassword] = useState('');
-  const [registerUsernameError, setRegisterUsernameError] = useState('');
-  const [registerEmailError, setRegisterEmailError] = useState('');
-  const [registerPasswordError, setRegisterPasswordError] = useState('');
-  const [registerConfirmPasswordError, setRegisterConfirmPasswordError] = useState('');
-
-  // Form visibility functions
-  const showForm = (formType) => {
-    if (overlayRef.current) {
-      overlayRef.current.style.display = "block";
-    }
-    
-    if (formType === 'login') {
-      setIsLoginFormShown(true);
-      setIsRegisterFormShown(false);
-    } else if (formType === 'register') {
-      setIsRegisterFormShown(true);
-      setIsLoginFormShown(false);
-    }
-  };
-  
-  const hideForm = (formType) => {
-    if (formType === 'login') {
-      setIsLoginFormShown(false);
-    } else if (formType === 'register') {
-      setIsRegisterFormShown(false);
-    } else {
-      setIsLoginFormShown(false);
-      setIsRegisterFormShown(false);
-    }
-    
-    // Delayed overlay hide to match transition
-    setTimeout(() => {
-      if (overlayRef.current && !isLoginFormShown && !isRegisterFormShown) {
-        overlayRef.current.style.display = "none";
-      }
-    }, 500);
-  };
-  
-  // Handle overlay click
-  const handleOverlayClick = () => {
-    hideForm('all');
-  };
-  
   // Scroll animation effect
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -105,173 +44,11 @@ function DoctorTreatment() {
       scrollContainers.forEach((container) => observer.unobserve(container));
     };
   }, []);
-  
-  // Form validation handlers
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    let isValid = true;
-    
-    if (!loginUsername) {
-      setLoginUsernameError('Username is required');
-      isValid = false;
-    } else {
-      setLoginUsernameError('');
-    }
-    
-    if (!loginPassword) {
-      setLoginPasswordError('Password is required');
-      isValid = false;
-    } else {
-      setLoginPasswordError('');
-    }
-    
-    if (isValid) {
-      // Handle login logic
-      console.log('Login successful');
-      hideForm('login');
-    }
-  };
-  
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    let isValid = true;
-    
-    if (!registerUsername) {
-      setRegisterUsernameError('Username is required');
-      isValid = false;
-    } else {
-      setRegisterUsernameError('');
-    }
-    
-    if (!registerEmail) {
-      setRegisterEmailError('Email is required');
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(registerEmail)) {
-      setRegisterEmailError('Email is invalid');
-      isValid = false;
-    } else {
-      setRegisterEmailError('');
-    }
-    
-    if (!registerPassword) {
-      setRegisterPasswordError('Password is required');
-      isValid = false;
-    } else {
-      setRegisterPasswordError('');
-    }
-    
-    if (!registerConfirmPassword) {
-      setRegisterConfirmPasswordError('Confirm password is required');
-      isValid = false;
-    } else if (registerPassword !== registerConfirmPassword) {
-      setRegisterConfirmPasswordError('Passwords do not match');
-      isValid = false;
-    } else {
-      setRegisterConfirmPasswordError('');
-    }
-    
-    if (isValid) {
-      // Handle registration logic
-      console.log('Registration successful');
-      hideForm('register');
-    }
-  };
 
   return (
     <div className="main">
-      <div className="overlay" ref={overlayRef} onClick={handleOverlayClick}></div>
-      
-      {/* Navbar Component */}
-      <NavBar showForm={showForm} />
-      
-      {/* Login Form */}
-      <div 
-        id="login-form" 
-        className={`form-container ${isLoginFormShown ? 'show' : ''}`} 
-        ref={loginFormRef}
-      >
-        <div className="form-box">
-          <span id="close-login" className="close-btn" onClick={() => hideForm('login')}>&times;</span>
-          <h2>Login</h2>
-          
-          <form id="loginForm" onSubmit={handleLoginSubmit}>
-            <input
-              id="login-username"
-              type="text"
-              placeholder="Username"
-              value={loginUsername}
-              onChange={(e) => setLoginUsername(e.target.value)}
-            />
-            <span id="login-username_err" className="error-msg">{loginUsernameError}</span>
-            
-            <input
-              id="login-password"
-              type="password"
-              placeholder="Password"
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <span id="login-password_err" className="error-msg">{loginPasswordError}</span>
-            
-            <button id="login-submit" type="submit">Login</button>
-            <p>Don't have an account? <a id="no-account" href="#" onClick={() => showForm('register')}>Register</a></p>
-          </form>
-        </div>
-      </div>
-      
-      {/* Register Form */}
-      <div 
-        id="register-form" 
-        className={`form-container ${isRegisterFormShown ? 'show' : ''}`} 
-        ref={registerFormRef}
-      >
-        <div className="form-box">
-          <span id="close-register" className="close-btn" onClick={() => hideForm('register')}>&times;</span>
-          <h2>Register</h2>
-          
-          <form id="registerForm" onSubmit={handleRegisterSubmit}>
-            <input
-              id="register-username"
-              type="text"
-              placeholder="Username"
-              value={registerUsername}
-              onChange={(e) => setRegisterUsername(e.target.value)}
-            />
-            <span id="register-username_err" className="error-msg">{registerUsernameError}</span>
-            
-            <input
-              id="register-email"
-              type="email"
-              placeholder="Email"
-              value={registerEmail}
-              onChange={(e) => setRegisterEmail(e.target.value)}
-            />
-            <span id="register-email_err" className="error-msg">{registerEmailError}</span>
-            
-            <input
-              id="register-password"
-              type="password"
-              placeholder="Password"
-              value={registerPassword}
-              onChange={(e) => setRegisterPassword(e.target.value)}
-            />
-            <span id="register-password_err" className="error-msg">{registerPasswordError}</span>
-            
-            <input
-              id="register-cn-password"
-              type="password"
-              placeholder="Confirm Password"
-              value={registerConfirmPassword}
-              onChange={(e) => setRegisterConfirmPassword(e.target.value)}
-            />
-            <span id="register-cn-password_err" className="error-msg">{registerConfirmPasswordError}</span>
-            
-            <button id="register-submit" type="submit">Register</button>
-            <p>Already have an account? <a id="have-account" href="#" onClick={() => showForm('login')}>Login</a></p>
-          </form>
-        </div>
-      </div>
-      
+      <NavBar />
+      <div className="overlay"></div>
       <div id="header" className="scroll-container">
         <div className="hidden1">
           <h1>Meet Our Expert Dentists</h1>
@@ -382,17 +159,7 @@ function DoctorTreatment() {
           </div>
         </section>
       </div>
-      
-      <div id="footer">
-        <p>Copyrights © 2025 DentaEase. All rights reserved.</p>
-        <div id="landing_pages">
-            <Link to="/terms">Terms and Conditions</Link>
-            <span>|</span>
-            <Link to="/privacy-policy">Privacy & Policy</Link>
-            <span>|</span>
-            <a href="faq.html">FAQ</a>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 import NavBar from './NavBar.jsx';
 import { Link } from 'react-router-dom';
-
+import Footer from './Footer.jsx';
 // Icons and images
 import icon1 from './assets/icon1.png';
 import icon2 from './assets/icon2.png';
@@ -78,7 +78,7 @@ function Home() {
   return (
     <div className="main">
       <NavBar />
-      
+      <div className="overlay"></div>
       {/* Main Content */}
       <div id="content" ref={contentRef}>
         {/* Row 1 - Welcome */}
@@ -253,16 +253,7 @@ function Home() {
       </div>
       
       {/* Footer */}
-      <div id="footer">
-        <p>Copyrights © 2025 DentaEase. All rights reserved.</p>
-        <div id="landing_pages">
-          <Link to="/terms">Terms and Conditions</Link>
-          <span>|</span>
-          <Link to="/privacy-policy">Privacy & Policy</Link>
-          <span>|</span>
-          <a href="faq.html">FAQ</a>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

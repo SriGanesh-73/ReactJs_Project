@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import NavBar from './NavBar.jsx';
+import Footer from  './Footer.jsx';
 import './landing_pages.css';
 import './index.css';
 import {Link} from 'react-router-dom';
@@ -32,9 +33,8 @@ const PrivacyPolicy = () => {
     }, []);
     return (
         <div className="main">
-            <div className="overlay"></div>
             <NavBar />
-            
+            <div className="overlay"></div>
             <header className="scroll-container">
                 <div className="hidden1">
                     <h1>Privacy Policy</h1>
@@ -69,16 +69,7 @@ const PrivacyPolicy = () => {
                 </div>
             </main>
             
-            <div id="footer">
-                <p>Copyrights © 2025 DentaEase. All rights reserved.</p>
-                <div id="landing_pages">
-                    <Link to="/terms">Terms and Conditions</Link>
-                    <span>|</span>
-                    <Link to="/privacy-policy">Privacy & Policy</Link>
-                    <span>|</span>
-                    <a href="faq.html">FAQ</a>
-                </div>
-            </div>
+            <Footer />
         </div>
     );
 };

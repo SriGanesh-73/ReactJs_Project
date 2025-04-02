@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import './forms.css';
 import NavBar from './NavBar.jsx';
-import './Appointment_booking_form.css';
+import Footer from './Footer.jsx';
 import './index.css';
-import { Link } from 'react-router-dom';
 
 const AppointmentBooking = () => {
     const [formData, setFormData] = useState({
@@ -117,6 +117,7 @@ const AppointmentBooking = () => {
             });
         }
     };
+
     // Scroll animation effect
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -142,10 +143,11 @@ const AppointmentBooking = () => {
         scrollContainers.forEach((container) => observer.unobserve(container));
         };
     }, []);
+
     return (
         <div className="main">
-            <div className="overlay"></div>
             <NavBar />
+            <div className="overlay"></div>
             <div id="appointment-container" className="scroll-container">
                 <h1>Book an Appointment</h1>
                 <form id="appointmentForm" onSubmit={handleSubmit}>
@@ -239,16 +241,7 @@ const AppointmentBooking = () => {
                     <button type="submit">Book Appointment</button>
                 </form>
             </div>  
-            <div id="footer">
-                <p>Copyrights © 2025 DentaEase. All rights reserved.</p>
-                <div id="landing_pages">
-                    <Link to="/terms">Terms and Conditions</Link>
-                    <span>|</span>
-                    <Link to="/privacy-policy">Privacy & Policy</Link>
-                    <span>|</span>
-                    <a href="faq.html">FAQ</a>
-                </div>
-            </div>    
+            <Footer />    
         </div>
     );
 };

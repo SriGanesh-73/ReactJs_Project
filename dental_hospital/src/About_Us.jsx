@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar.jsx';
+import Footer from './Footer.jsx';
 import './About_Us.css';
 import './index.css';
 import { Link } from 'react-router-dom';
@@ -72,9 +73,8 @@ const AboutUs = () => {
     }, []);
     return (
         <div className="main">
-            <div className="overlay"></div>
             <NavBar />
-            
+            <div className="overlay"></div>
             <div id="content">
                 <header className="scroll-container">
                     <div className="hidden1">
@@ -132,16 +132,7 @@ const AboutUs = () => {
                 </section>
             </div>
             
-            <div id="footer">
-                <p>Copyrights © 2025 DentaEase. All rights reserved.</p>
-                <div id="landing_pages">
-                    <Link to="/terms">Terms and Conditions</Link>
-                    <span>|</span>
-                    <Link to="/privacy-policy">Privacy & Policy</Link>
-                    <span>|</span>
-                    <a href="faq.html">FAQ</a>
-                </div>
-            </div>
+            <Footer />
         </div>
     );
 };
