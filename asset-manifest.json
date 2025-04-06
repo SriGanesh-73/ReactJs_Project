@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ReactJs_Project/static/css/main.e31954b1.css",
-    "main.js": "/ReactJs_Project/static/js/main.1c7c1a20.js",
+    "main.js": "/ReactJs_Project/static/js/main.6264a897.js",
     "static/media/doctor_1.jpg": "/ReactJs_Project/static/media/doctor_1.956086521d24d342d7ad.jpg",
     "static/media/dental_filling.png": "/ReactJs_Project/static/media/dental_filling.d6bc85c2e5f3ea679731.png",
     "static/media/Root-Canal-Treatment.jpeg": "/ReactJs_Project/static/media/Root-Canal-Treatment.0294411e699c15cd455b.jpeg",
@@ -26,10 +26,10 @@
     "static/media/icon8.png": "/ReactJs_Project/static/media/icon8.ffa5b3b7a80ab0c10439.png",
     "index.html": "/ReactJs_Project/index.html",
     "main.e31954b1.css.map": "/ReactJs_Project/static/css/main.e31954b1.css.map",
-    "main.1c7c1a20.js.map": "/ReactJs_Project/static/js/main.1c7c1a20.js.map"
+    "main.6264a897.js.map": "/ReactJs_Project/static/js/main.6264a897.js.map"
   },
   "entrypoints": [
     "static/css/main.e31954b1.css",
-    "static/js/main.1c7c1a20.js"
+    "static/js/main.6264a897.js"
   ]
 }
