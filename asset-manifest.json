@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ReactJs_Project/static/css/main.e31954b1.css",
+    "main.css": "/ReactJs_Project/static/css/main.1a4d7139.css",
     "main.js": "/ReactJs_Project/static/js/main.a037a825.js",
     "static/media/doctor_1.jpg": "/ReactJs_Project/static/media/doctor_1.956086521d24d342d7ad.jpg",
     "static/media/dental_filling.png": "/ReactJs_Project/static/media/dental_filling.d6bc85c2e5f3ea679731.png",
@@ -25,11 +25,11 @@
     "static/media/Bracers_aligners.jpeg": "/ReactJs_Project/static/media/Bracers_aligners.0988e5b48aa7d752645b.jpeg",
     "static/media/icon8.png": "/ReactJs_Project/static/media/icon8.ffa5b3b7a80ab0c10439.png",
     "index.html": "/ReactJs_Project/index.html",
-    "main.e31954b1.css.map": "/ReactJs_Project/static/css/main.e31954b1.css.map",
+    "main.1a4d7139.css.map": "/ReactJs_Project/static/css/main.1a4d7139.css.map",
     "main.a037a825.js.map": "/ReactJs_Project/static/js/main.a037a825.js.map"
   },
   "entrypoints": [
-    "static/css/main.e31954b1.css",
+    "static/css/main.1a4d7139.css",
     "static/js/main.a037a825.js"
   ]
 }
