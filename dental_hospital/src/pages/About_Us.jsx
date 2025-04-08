@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
-import './About_Us.css';
-import './index.css';
-import { Link } from 'react-router-dom';
-import doctorImage from './assets/doctor_1.jpg';
+import NavBar from '../components/NavBar.jsx';          // Components are in src/components/
+import Footer from '../components/Footer.jsx';          // Components are in src/components/
+import '../styles/About_Us.css';                       // CSS is in src/styles/
+import '../styles/index.css';                          // Global CSS in src/styles/
+import doctorImage from '../assets/doctor_1.jpg';      // Images are in src/assets/
 
 const AboutUs = () => {
     const [teamMembers, setTeamMembers] = useState([

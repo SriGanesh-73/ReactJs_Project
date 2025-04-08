@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './index.css';
-import NavBar from './NavBar.jsx';
+import './styles/index.css';
+import NavBar from './components/NavBar.jsx';
 import { Link } from 'react-router-dom';
-import Footer from './Footer.jsx';
+import Footer from './components/Footer.jsx';
 // Icons and images
 import icon1 from './assets/icon1.png';
 import icon2 from './assets/icon2.png';

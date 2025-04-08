@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
-import './landing_pages.css';
-import './index.css';
+import NavBar from '../components/NavBar.jsx';
+import Footer from '../components/Footer.jsx';
+import '../styles/landing_pages.css';
+import '../styles/index.css';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({

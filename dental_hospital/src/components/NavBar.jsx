@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import logo from './logo.webp';
-import './index.css';
-import RightSideMenu from './right_side_menu';
-import Overlay from './Overlay';
+import logo from '../assets/logo.webp';
+import '../styles/index.css';
+import RightSideMenu from '../pages/right_side_menu';
 
 const featureItems = [
   'Electronic Patient Records',

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './index.jsx';
-import AboutUs from './About_Us';
-import ContactUs from './contact.jsx';
-import Careers from './careers.jsx';
-import TermsAndConditions from './terms.jsx';
-import PrivacyPolicy from './privacy_policy.jsx';
-import AppointmentBooking from './Appointment_Booking_form.jsx';
-import DoctorTreatment from './Doctor_Treatment_details.jsx';
-import NavBar from './NavBar.jsx'; // Assuming your NavBar is in the same directory
-import LoginPage from './Login_form.jsx';
-import RegisterPage from './Register_form.jsx';
+import AboutUs from './pages/About_Us';
+import ContactUs from './pages/contact.jsx';
+import Careers from './pages/careers.jsx';
+import TermsAndConditions from './pages/terms.jsx';
+import PrivacyPolicy from './pages/privacy_policy.jsx';
+import AppointmentBooking from './pages/Appointment_Booking_form.jsx';
+import DoctorTreatment from './pages/Doctor_Treatment_details.jsx';
+import LoginPage from './pages/Login_form.jsx';
+import RegisterPage from './pages/Register_form.jsx';
 
 // Create Overlay Context
 const OverlayContext = React.createContext();

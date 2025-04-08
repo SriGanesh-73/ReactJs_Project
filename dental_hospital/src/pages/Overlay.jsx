@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import './index.css'; // Make sure to import your CSS
+import '../styles/index.css'; // Make sure to import your CSS
 
 const Overlay = React.forwardRef(({ onClick }, ref) => {
   const handleClick = useCallback((e) => {

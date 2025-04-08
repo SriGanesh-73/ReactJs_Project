@@ -1,9 +1,8 @@
-import React, { useState,useEffect } from 'react';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
-import './landing_pages.css';
-import './index.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import NavBar from '../components/NavBar.jsx';  // Changed to correct components path
+import Footer from '../components/Footer.jsx';  // Changed to correct components path
+import '../styles/landing_pages.css';  // Changed to correct styles path
+import '../styles/index.css';  // Changed to correct global styles path
 
 const Careers = () => {
     const [applicationData, setApplicationData] = useState({

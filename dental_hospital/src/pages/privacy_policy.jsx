@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import NavBar from './NavBar.jsx';
-import Footer from  './Footer.jsx';
-import './landing_pages.css';
-import './index.css';
-import {Link} from 'react-router-dom';
+import NavBar from '../components/NavBar.jsx';
+import Footer from  '../components/Footer.jsx';
+import '../styles/landing_pages.css';
+import '../styles/index.css';
 
 const PrivacyPolicy = () => {
     // Scroll animation effect

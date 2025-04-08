@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './forms.css';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
-import './index.css';
+import '../styles/forms.css';  // Adjusted path to styles
+import NavBar from '../components/NavBar.jsx';  // Correct component path
+import Footer from '../components/Footer.jsx';  // Correct component path
+import '../styles/index.css';  // Adjusted global CSS path
 
 const AppointmentBooking = () => {
     const [formData, setFormData] = useState({

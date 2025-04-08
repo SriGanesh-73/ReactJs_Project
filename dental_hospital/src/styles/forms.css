@@ -34,8 +34,7 @@ form label {
 /* Input Fields */
 form input, 
 form textarea,
-#treatment,
-form select {
+#treatment {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -43,19 +42,20 @@ form select {
     border-radius: 5px;
     background-color: #f9f9f9;
 }
+#treatment{
+    width:400px;
+}
 
 form input:focus,
 form textarea:focus,
-#treatment:focus,
-form select:focus {
+#treatment:focus{
     outline: none;
     box-shadow: 2px 2px 15px 4px #0ad82c;
 }
 
 form input:hover,
 form textarea:hover,
-#treatment:hover,
-form select:hover {
+#treatment:hover{
     box-shadow: 2px 2px 15px 4px #0ad82c; /* Increased blur for glow effect */
 }
 

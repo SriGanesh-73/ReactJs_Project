@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
+import NavBar from '../components/NavBar.jsx';
+import Footer from '../components/Footer.jsx';
 import { Link } from 'react-router-dom';
-import './forms.css';
-import './index.css';
+import '../styles/forms.css';
+import '../styles/index.css';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
@@ -65,7 +65,15 @@ const LoginPage = () => {
         // Check if form is valid
         const isValid = Object.values(newErrors).every(error => error === '');
         
+        const clearAllErrors = {
+            email: '',
+            password:''
+        };
+
         if (isValid) {
+            //Clear all errors
+            setFormData(clearAllErrors);
+            // Perform login action
             alert('Login successful!');
             // Here you would typically handle the login logic
         }
@@ -129,7 +137,7 @@ const LoginPage = () => {
                   <button type="submit">Login</button>
                   
                   <div style={{ marginTop: '15px', color: 'white' }}>
-                      Don't have an account? <Link to="/register" style={{ color: '#fff', textDecoration: 'underline' }}>Register here</Link>
+                      Don't have an account? <Link to="/register-form" style={{ color: '#fff', textDecoration: 'underline' }}>Register here</Link>
                   </div>
               </form>
           </div>  

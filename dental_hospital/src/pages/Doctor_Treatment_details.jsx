@@ -1,22 +1,21 @@
 import React, { useEffect, useRef } from 'react';
-import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
-import './Doctor_Treatment_details.css';
-import './index.css';
-import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar.jsx';
+import Footer from '../components/Footer.jsx';
+import '../styles/Doctor_Treatment_details.css';
+import '../styles/index.css';
 
 // Import doctor images
-import doctorImage from './assets/doctor_1.jpg';
+import doctorImage from '../assets/doctor_1.jpg';
 
 // Import treatment images
-import teethWhitening from './assets/teeth_whitening.jpg';
-import rootCanal from './assets/Root-Canal-Treatment.jpeg';
-import bracersAligners from './assets/Bracers_aligners.jpeg';
-import extraction from './assets/extraction_dental.jpeg';
-import dentures from './assets/Removable-Dentures.jpg';
-import filling from './assets/dental_filling.png';
-import implant from './assets/dental_implants.jpg';
-import capsCrowns from './assets/caps_crowns.jpg';
+import teethWhitening from '../assets/teeth_whitening.jpg';
+import rootCanal from '../assets/Root-Canal-Treatment.jpeg';
+import bracersAligners from '../assets/Bracers_aligners.jpeg';
+import extraction from '../assets/extraction_dental.jpeg';
+import dentures from '../assets/Removable-Dentures.jpg';
+import filling from '../assets/dental_filling.png';
+import implant from '../assets/dental_implants.jpg';
+import capsCrowns from '../assets/caps_crowns.jpg';
 
 function DoctorTreatment() {
   // Scroll animation effect
