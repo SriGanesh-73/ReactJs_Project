@@ -54,24 +54,27 @@ function Home() {
     {
       question: "How do I book an appointment?",
       answer: "You can book online through our website or call our reception desk.",
-      isOpen: false
+      isOpen: false,
     },
     {
       question: "Do you accept insurance?",
       answer: "Yes, we accept most insurance plans. Contact us for details.",
-      isOpen: false
+      isOpen: false,
     },
     {
       question: "What treatments do you offer?",
       answer: "We provide general dentistry, cosmetic treatments, orthodontics, and more.",
-      isOpen: false
-    }
+      isOpen: false,
+    },
   ]);
+  
   const toggleFaq = (index) => {
-    setFaqs(faqs.map((faq, i) => ({
-      ...faq,
-      isOpen: i === index ? !faq.isOpen : false
-    })));
+    setFaqs(
+      faqs.map((faq, i) => ({
+        ...faq,
+        isOpen: i === index ? !faq.isOpen : false,
+      }))
+    );
   };
   
 
@@ -224,34 +227,35 @@ function Home() {
         </div>
         
         {/* Row 8 - FAQ */}
-        <div id="row8" className="scroll-container">
+        <div id="faq-container" className="faq-container">
           <h2>Frequently Asked Questions</h2>
-          <main>
+          <div className="faq-list">
             {faqs.map((faq, index) => (
-              <div 
+              <div
                 key={index}
-                className={`faq-item ${faq.isOpen ? 'active' : ''}`}
+                className={`faq-item ${faq.isOpen ? 'open' : ''}`}
                 onClick={() => toggleFaq(index)}
               >
-                <h3>
+                <div className="faq-question">
                   {faq.question}
-                  <span className={`arrow ${faq.isOpen ? 'rotate' : ''}`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000">
-                      <path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z"/>
+                  <span className="faq-arrow">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="20px"
+                      viewBox="0 -960 960 960"
+                      width="20px"
+                      fill="#000"
+                    >
+                      <path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z" />
                     </svg>
                   </span>
-                </h3>
-                {faq.isOpen && (
-                  <div className="answer">
-                    <p>{faq.answer}</p>
-                  </div>
-                )}
+                </div>
+                <div className="faq-answer">{faq.isOpen && <p>{faq.answer}</p>}</div>
               </div>
             ))}
-          </main>  
+          </div>
         </div>
       </div>
-      
       {/* Footer */}
       <Footer />
     </div>

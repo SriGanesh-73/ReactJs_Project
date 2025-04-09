@@ -92,15 +92,6 @@ input:hover, textarea:hover{
     box-shadow: 2px 2px 15px 4px #0ad82c;
 }
 
-/* FAQ Style */
-.faq-item h3 {
-    cursor: pointer;
-    color: #315A43;
-}
-.answer {
-    display: none;
-    margin-top: 5px;
-}
 
 /* Mobile FAQ Adjustments */
 @media (max-width: 480px) {
